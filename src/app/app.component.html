@@ -7,6 +7,24 @@
       <!-- <div app-servers></div> -->
       <div class="app-servers"></div>
       <app-warningAlert></app-warningAlert>
+      <hr>
+      <label for="">Username</label>
+      <input type="text" 
+      class="form-control"
+      [(ngModel)]="username">
+      <button class="btn btn-primary" 
+      [disabled]="username === ''"
+      (click)="onResetUser()">Reset User</button>
+      <hr>
+      <p>{{username}}</p>
+      <hr>
+      <button class="btn btn-primary" (click)="onDisplay()">Display Details</button>
+      <p *ngIf="showPassword">Secret Password = tuna</p>
+      <div *ngFor="let logItem of log"
+      [ngStyle]="{'background-color': logItem >=5 ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': logItem >=5 }">
+        {{ logItem }}
+      </div>
     </div>
   </div>
 </div>
